@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenta la Fortuna</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #330000;
+        color: #FFB6C1;
+        text-align: center;
+        padding: 50px;
+    }
+    h1 { margin-bottom: 10px; }
+    h2 { margin-bottom: 30px; font-weight: normal; }
+    #box {
+        background-color: #fff;
+        color: #000;
+        padding: 20px;
+        margin: 20px auto;
+        width: 300px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        border-radius: 80px;
+    }
+    button {
+        padding: 20px 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 15px;
+        justify-content: center;
+        background: #220000;
+        margin-bottom: 30px;
+    }
+    .navbar a {
+        color: #FFB6C1;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="home.html">Home</a>
+  <a href="foto.html">Le nostre foto</a>
+  <a href="contagiorni.html">Contagiorni</a>
+  <a href="fortuna.html">Tenta la fortuna</a>
+  <a href="lettera.html">Una lettera per te</a>
+  <a href="pensieri.html">Quando ti penso</a>
+  <a href="emergenza.html">EMERGENZA</a>
+</nav>
+
+<h1>Tenta la fortuna</h1>
+<p>Clicca il pulsante e scopri cosa esce.</p>
+
+<div id="box">Clicca qui sotto</div>
+<button onclick="tenta()">Cliccami</button>
+
+<script>
+    const frasi = [
+        "Sei tutto per me", "Sono fortunata ad averti", "Ogni giorno ti amo di più", "Sei speciale",
+        "Ti amo più di tutto il resto", "Spero di non farti mai smettere di sorridere", "Vorrei stare con te per sempre",
+        "Sei tutto di cui ho bisogno", "Vorrei stare con te anche quando non voglio nessuno intorno",
+        "Spero che ti svegli ogni giorno felice", "Sei la mia persona preferita", "Il tuo regalo più grande è il tuo amore",
+        "Quando stiamo insieme rendi tutto più bello", "Non riesco a descrivere quanto ti amo", "Sei unica",
+        "Mi manchi ogni giorno", "Sei la cosa migliore che ho", "Sei bellissima",
+        "Spero tu stia per sempre bene con me", "Spero di non deluderti mai", "Sei incredibile",
+        "Ti ammiro", "Ogni giorno ti amo più di ieri"
+    ];
+
+    function tenta() {
+        const rand = Math.floor(Math.random() * frasi.length);
+        document.getElementById('box').innerText = frasi[rand];
+    }
+</script>
+
+</body>
+</html>
