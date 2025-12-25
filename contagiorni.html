@@ -5,15 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contagiorni</title>
 <style>
-body { margin:0; font-family:Arial,sans-serif; background:#330000; color:#FFB6C1; text-align:center; padding:50px;}
-h1 { margin-bottom:20px;}
-.count { font-size:48px; margin-top:20px;}
-.navbar { display:flex; justify-content:center; gap:15px; padding:15px;}
-.navbar a { color:#FFB6C1; text-decoration:none; font-weight:bold;}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #330000;
+    color: #FFB6C1;
+    text-align: center;
+    padding: 50px;
+}
+h1 {
+    margin-bottom: 20px;
+}
+.count {
+    font-size: 48px;
+    margin-top: 20px;
+}
+nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+nav a {
+    color: #FFB6C1;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
 </style>
 </head>
 <body>
-<nav class="navbar">
+<nav>
   <a href="home.html">Home</a>
   <a href="foto.html">Le nostre foto</a>
   <a href="contagiorni.html">Contagiorni</a>
@@ -23,23 +48,26 @@ h1 { margin-bottom:20px;}
   <a href="emergenza.html">EMERGENZA</a>
 </nav>
 
-<h1>Ciao amore, oggi stiamo insieme da:</h1>
+<h1>Ciao amore, se te lo stavi chiedendo, oggi stiamo insieme da:</h1>
 <div class="count" id="daysCount"></div>
 
 <script>
-const startDate = new Date(2025, 2, 16); 
-const counter = document.getElementById("daysCount");
-
-function aggiornaGiorni() {
-    const oggi = new Date();
-    oggi.setHours(0,0,0,0);
-    const diff = oggi - startDate;
-    const giorni = Math.floor(diff / (1000*60*60*24));
-    counter.textContent = giorni + " giorni";
-}
-
-aggiornaGiorni();
-setInterval(aggiornaGiorni, 1000*60*60);
+(function () {
+    const startDate = new Date(2025, 2, 16); // Marzo = 2
+    const counter = document.getElementById("daysCount");
+    function aggiornaGiorni() {
+        const oggi = new Date();
+        oggi.setHours(0,0,0,0);
+        const inizio = new Date(startDate);
+        inizio.setHours(0,0,0,0);
+        const diff = oggi - inizio;
+        const giorni = Math.floor(diff / (1000*60*60*24));
+        counter.textContent = giorni + " giorni";
+    }
+    aggiornaGiorni();
+})();
 </script>
+
 </body>
 </html>
+
