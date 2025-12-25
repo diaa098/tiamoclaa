@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contagiorni</title>
+<style>
+body { margin:0; font-family:Arial,sans-serif; background:#330000; color:#FFB6C1; text-align:center; padding:50px;}
+h1 { margin-bottom:20px;}
+.count { font-size:48px; margin-top:20px;}
+.navbar { display:flex; justify-content:center; gap:15px; padding:15px;}
+.navbar a { color:#FFB6C1; text-decoration:none; font-weight:bold;}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="home.html">Home</a>
+  <a href="foto.html">Le nostre foto</a>
+  <a href="contagiorni.html">Contagiorni</a>
+  <a href="fortuna.html">Tenta la fortuna</a>
+  <a href="lettera.html">Una lettera per te</a>
+  <a href="pensieri.html">Quando ti penso</a>
+  <a href="emergenza.html">EMERGENZA</a>
+</nav>
+
+<h1>Ciao amore, oggi stiamo insieme da:</h1>
+<div class="count" id="daysCount"></div>
+
+<script>
+const startDate = new Date(2025, 2, 16); 
+const counter = document.getElementById("daysCount");
+
+function aggiornaGiorni() {
+    const oggi = new Date();
+    oggi.setHours(0,0,0,0);
+    const diff = oggi - startDate;
+    const giorni = Math.floor(diff / (1000*60*60*24));
+    counter.textContent = giorni + " giorni";
+}
+
+aggiornaGiorni();
+setInterval(aggiornaGiorni, 1000*60*60);
+</script>
+</body>
+</html>
