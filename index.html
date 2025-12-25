@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Codice Segreto</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #330000;
+        color: #FFB6C1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        text-align: center;
+    }
+    input {
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 5px;
+        border: none;
+        margin-top: 10px;
+    }
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+    .error {
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Attenzione: sito privato</h1>
+    <p>Inserisci il codice segreto per accedere</p>
+
+    <input type="password" id="codice" placeholder="Codice...">
+    <br>
+    <button onclick="verificaCodice()">Entra</button>
+
+    <p class="error" id="error"></p>
+    <p>Indizio: la nostra data (8 numeri)</p>
+</div>
+
+<script>
+function verificaCodice() {
+    const codice = document.getElementById("codice").value;
+    const correct = "16032025";
+
+    if (codice === correct) {
+        window.location.href = "home.html";
+    } else {
+        document.getElementById("error").textContent =
+            "Codice errato, riprova.";
+    }
+}
+</script>
+</body>
+</html>
